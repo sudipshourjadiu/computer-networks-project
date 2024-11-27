@@ -1,6 +1,4 @@
-### **Project Report: Setting Up a WireGuard VPN Server for Internet Access of Clients**
-
----
+# Project Report: Setting Up a WireGuard VPN Server for Internet Access of Clients
 
 #### **1. Project Title**
 **Implementation of a WireGuard VPN Server to Enable Secure Internet Access**

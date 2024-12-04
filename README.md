@@ -1,4 +1,4 @@
-# **Title of Your Mini Lab Project**  
+# **WireFuard VPN Tunneling Project**  
 **Secure Internet Access Through WireGuard VPN and Simulated Network Setup in Cisco Packet Tracer**
 
 ---

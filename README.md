@@ -1,4 +1,4 @@
-# **WireFuard VPN Tunneling Project**  
+# **WireGuard VPN Tunneling Project**  
 **Secure Internet Access Through WireGuard VPN and Simulated Network Setup in Cisco Packet Tracer**
 
 ---
@@ -134,20 +134,65 @@ Commands used:
 
 ---
 
-### **3.2 Results and Discussion**  
+### **Results and Discussion**
+
 #### **Results**  
-1. WireGuard successfully routed client traffic through the server, ensuring privacy and encryption.  
-2. Packet Tracer simulation demonstrated NAT and routing for VPN-like behavior.  
 
-#### **Discussion**  
-- **PostUp Commands**:  
-  - Forward traffic between WireGuard clients and the internet.  
-  - Perform NAT to masquerade client traffic as originating from the server’s public IP.  
+1. **Data Privacy and Encryption**:  
+   When the client sends data to the WireGuard VPN server, the data is encrypted using the client’s private key and the server’s public key. This ensures that the transmitted data remains secure and cannot be intercepted or understood by external parties. The VPN server decrypts the data using its private key, ensuring that only the intended server can access the information.  
 
-- **PostDown Commands**:  
-  - Clean up NAT and forwarding rules to prevent unnecessary traffic after the VPN stops.  
+   - **Hiding Internet Accessibility**:  
+     Since the data is routed through the VPN server, the client’s actual IP address is hidden from external websites or services. All internet traffic appears to originate from the VPN server's public IP. This mechanism anonymizes the client’s activities, enhancing privacy and security.  
+
+2. **Asymmetric Key Authentication**:  
+   WireGuard employs an asymmetric encryption system for authentication:
+   - The client and server exchange their **public keys** during the initial handshake.
+   - The **client's private key** and the **server's public key** are used to encrypt the connection setup.
+   - Similarly, the server uses its **private key** and the **client's public key** to decrypt the setup data and authenticate the client.  
+
+   This mutual authentication ensures that only valid clients can establish connections with the VPN server. The process protects against impersonation and unauthorized access.  
+
+3. **Symmetric Encryption for Data Transfer**:  
+   After the initial handshake, WireGuard derives a **shared symmetric session key** using the client and server keys. This session key is used to encrypt and decrypt all subsequent data exchanged between the client and the VPN server.  
+   - **Reason for Symmetric Encryption**: While asymmetric encryption is secure, it is computationally expensive for encrypting large amounts of traffic. Symmetric encryption, derived from the asymmetric handshake, is faster and efficient for ongoing communication.  
+
+   The use of symmetric encryption ensures minimal latency while maintaining high security for all client-server traffic.  
+
+4. **Packet Tracer Simulation**:  
+   In the Cisco Packet Tracer simulation, the routing and NAT configurations successfully demonstrate the flow of client traffic through a centralized router acting as a VPN server. The simulation mimics VPN-like behavior by hiding the client’s internal IP and presenting the router’s public IP to the external network.
 
 ---
+
+#### **Discussion**  
+
+- **Encrypted Data Flow**:  
+   WireGuard ensures that data is encrypted during transit using robust encryption algorithms. The client device encrypts outgoing packets with the server's public key before transmitting them to the VPN server. Similarly, the server encrypts its responses with the client’s public key, ensuring end-to-end encryption.  
+
+   This encryption mechanism prevents eavesdroppers on the network from reading or tampering with the data. Even if an attacker intercepts the traffic, they cannot decipher its contents without access to the private keys.
+
+- **Mutual Authentication with Asymmetric Keys**:  
+   The asymmetric key pair ensures that:
+   - The **server can verify the client's authenticity** before granting access.
+   - The **client can verify the server’s authenticity** to avoid man-in-the-middle attacks.  
+
+   This eliminates the need for traditional username-password authentication, relying instead on cryptographic identities.
+
+- **Use of Symmetric Keys for Traffic Encryption**:  
+   The symmetric session key, derived during the handshake process, is used for encrypting all data after authentication. This hybrid approach—using asymmetric keys for authentication and symmetric keys for encryption—ensures both security and efficiency.  
+
+- **Privacy and IP Anonymization**:  
+   By routing all client traffic through the VPN server, the client’s real IP address is hidden. External services see only the VPN server’s public IP, effectively anonymizing the client’s online activities. This feature is particularly useful for protecting sensitive communications or accessing region-specific resources securely.  
+
+- **Simulation Insights**:  
+   The Cisco Packet Tracer simulation effectively demonstrates:
+   - How NAT translates private IPs to the public IP of the VPN server.
+   - The routing of client traffic through a central VPN-like server.  
+
+   Although the simulation cannot emulate encryption, it visualizes the network flow and logical behavior of a VPN setup, providing an educational perspective on secure networking principles.
+
+--- 
+
+This expanded **Results and Discussion** section now provides a detailed explanation of the encryption mechanisms, the role of asymmetric keys in authentication, the use of symmetric encryption for traffic, and the privacy advantages of routing through a VPN.
 
 ### **Chapter 4: Engineering Standards and Mapping**
 

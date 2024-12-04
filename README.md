@@ -1,7 +1,3 @@
-Here's the revised **Project Report** with the added **Engineering Standards and Mapping** chapter, detailed **Results and Discussion**, and incorporation of the course outcomes provided.
-
----
-
 # **Title of Your Mini Lab Project**  
 **Secure Internet Access Through WireGuard VPN and Simulated Network Setup in Cisco Packet Tracer**
 

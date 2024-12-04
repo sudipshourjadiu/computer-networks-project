@@ -255,7 +255,3 @@ This project implemented a WireGuard VPN to ensure secure internet access and si
 ## References  
 1. WireGuard Documentation: [https://www.wireguard.com](https://www.wireguard.com)  
 2. Cisco Packet Tracer Guides: Cisco Networking Academy  
-
----
-
-Let me know if you need further refinements or additional sections!
